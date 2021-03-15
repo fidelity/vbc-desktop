@@ -1,0 +1,9 @@
+Vaulted Bitcoin Custody - Desktop
+Copyright 2021 and onwards FMR LLC.
+
+This product includes software developed at
+FMR LLC (https://www.fidelity.com/).
+
+This product relies on the following works (and the dependencies thereof), installed separately:
+- pyserial | https://github.com/pyserial/pyserial | 3-Clause BSD License
+- python-bitcoinlib | https://github.com/petertodd/python-bitcoinlib | LGPL 3.0 License

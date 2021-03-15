@@ -1,0 +1,5 @@
+#!/bin/bash
+# Copyright 2021 FMR LLC <opensource@fidelity.com>
+# SPDX-License-Identifer: MIT
+
+bitcoin-cli -regtest -datadir=0 -rpcport=19010 "$@"

@@ -1,0 +1,5 @@
+# Copyright 2021 FMR LLC <opensource@fidelity.com>
+# SPDX-License-Identifer: MIT
+
+pyserial
+git+https://github.com/petertodd/python-bitcoinlib.git@b5540e8a8a138f2a4872c34ce4223b8f4e6856d9
