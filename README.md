@@ -7,19 +7,25 @@ This code is not production ready. DO NOT USE WITH MAINNET. DO NOT USE REAL FUND
 The vaulted bitcoin custody project is made up of two repositories:
 
 - vbc-desktop
-- vbc-board[HYPERLINK]
+- [vbc-board](https://github.com/fidelity/vbc-board)
 
 This project enables self-custody of bitcoins through Vaults using pre-signed transaction and private-key deletion.
 
-# Problem Statement
+# Motivation
 
-Private keys present a dangerous attack surface if they are easily accessible. They allow arbitraty signing of messages and thus, put funds at risk when not treated with proper care and security considerations. Even if they are not easily accessible, they are prone to accidential loss, bit rot, disaster or supply-chain attacks.
+Private keys present a dangerous attack surface if they are easily accessible. They allow arbitrary signing of messages and thus, put funds at risk when not treated with proper care and security considerations. Even if they are not easily accessible, they are prone to accidential loss, bit rot, disaster or supply-chain attacks.
 
-# Solution
+Vaults are a way to ensure funds are locked to a few different spending conditions with the use of deleted-keys and time-locks. From the [paper](https://arxiv.org/pdf/2005.11776.pdf)
+"A bitcoin vault is a specific type of
+covenant transaction that enforces a time-lock on the transfer of control of funds to a hot wallet, but enables an immediate
+transfer of funds into a deep cold recovery wallet." 
+If funds needs to be accessed, they are broadcast and will only be spendable after some arbitraty time-lock. At any point before the time-lock, the funds can be spent by the OP_ELSE branch of the script to a cold storage "Recovery Wallet". I.e. if there is suspicion of a theft attempt (unauthorized broadcast or suspicion of a compromised wallet to which that funds have been spent to), the funds can routed to a safe location.
 
-Vaults are a way to ensure funds are locked to a few different spending conditions with the use of deleted-keys and time-locks. If funds needs to be accessed, they are broadcast and will only be spendable after some arbitraty time-lock. At any point before the time-lock, the funds can be spent by the OP_ELSE branch of the script to a cold storage "Recovery Wallet". I.e. if there is suspicion of a theft attempt (unauthorized broadcast or suspicion of a compromised wallet to which that funds have been spent to), the funds can routed to a safe location.
+<img width="687" alt="Screen Shot 2021-04-19 at 1 28 50 PM" src="https://user-images.githubusercontent.com/64624962/115278960-19d8f980-a114-11eb-9692-af0b41b19a5f.png">
 
-[IMAGE]
+<img width="805" alt="Screen Shot 2021-04-19 at 1 33 27 PM" src="https://user-images.githubusercontent.com/64624962/115278763-d7172180-a113-11eb-98c5-689c832bc245.png">
+
+
 
 # Installation
 
@@ -66,13 +72,18 @@ popd
 
 ## Set up
 
-Ensure that you have set up the board properly, per the instructions in vbc-board[HYPERLINK]
+Ensure that you have set up the board properly, per the instructions in [vbc-board](https://github.com/fidelity/vbc-board)
 
 ### Simulator
 
 You will need to use the `simulator` branch of the vbc-board repo. To communicate the board simulator, the serial port needs to be changed. In messageHandler.py, comment out the line with the /dev/tty string and uncomment the three lines below `simulator connection`.
 
 ### Board
+
+<img width="322" alt="Screen Shot 2021-04-19 at 1 11 38 PM" src="https://user-images.githubusercontent.com/64624962/115276443-04160500-a111-11eb-8bdd-f2e69bd478b9.png">
+
+You will need the [STM32F469NI MCU](https://www.st.com/en/evaluation-tools/32f469idiscovery.html) and will also need to grasp a basic understanding of micropython.
+
 
 You'll have the change the name of the device as it appears on your machine.
 To do this, plug in both cables from the board to the computer run `ls -cltr /dev | grep tty`; remove the microUSB cable and run `ls -cltr /dev/ | grep tty` again.
