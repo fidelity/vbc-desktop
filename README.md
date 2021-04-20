@@ -144,4 +144,4 @@ Significant guidance was given by Stepan Snigirev and the [cryptoadvance project
 
 <https://github.com/JSwambo/bitcoin-vault>
 
-<https://github.com/re-vault/revault-demo#the-architecture>
+https://github.com/revault/practical-revault
