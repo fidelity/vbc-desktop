@@ -19,7 +19,7 @@ Vaults are a way to ensure funds are locked to a few different spending conditio
 "A bitcoin vault is a specific type of
 covenant transaction that enforces a time-lock on the transfer of control of funds to a hot wallet, but enables an immediate
 transfer of funds into a deep cold recovery wallet." 
-If funds needs to be accessed, they are broadcast and will only be spendable after some arbitraty time-lock. At any point before the time-lock, the funds can be spent by the OP_ELSE branch of the script to a cold storage "Recovery Wallet". I.e. if there is suspicion of a theft attempt (unauthorized broadcast or suspicion of a compromised wallet to which that funds have been spent to), the funds can routed to a safe location.
+If funds needs to be accessed, they are broadcast and will only be spendable after some arbitrary time-lock. At any point before the time-lock, the funds can be spent by the OP_ELSE branch of the script to a cold storage "Recovery Wallet". I.e. if there is suspicion of a theft attempt (unauthorized broadcast or suspicion of a compromised wallet to which that funds have been spent to), the funds can routed to a safe location.
 
 <img width="687" alt="Screen Shot 2021-04-19 at 1 28 50 PM" src="https://user-images.githubusercontent.com/64624962/115278960-19d8f980-a114-11eb-9692-af0b41b19a5f.png">
 
